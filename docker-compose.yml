@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+    qdrant:
+        image: qdrant/qdrant
+        container_name: vector_db
+        restart: always
+        ports:
+            - "6335:6333"
+        volumes:
+            - ./data/qdrant_storage:/qdrant/storage

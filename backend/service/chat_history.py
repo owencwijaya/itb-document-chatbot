@@ -19,7 +19,7 @@ def get_chat_history(user_id: str) -> BaseChatMessageHistory:
     return chat_history
 
 
-def create_chat_factory() -> Callable[[str, str], BaseChatMessageHistory]:
+def create_chat_factory() -> Callable[[str], BaseChatMessageHistory]:
     return get_chat_history
 
 

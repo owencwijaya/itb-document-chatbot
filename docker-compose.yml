@@ -8,4 +8,21 @@ services:
         ports:
             - "6335:6333"
         volumes:
-            - ./data/qdrant_storage:/qdrant/storage
+            - qdrant-data:/qdrant/data
+
+    redis:
+        image: redis
+        container_name: chat_history_db
+        restart: always
+        ports:
+            - "127.0.0.1:6369:6379"
+        environment:
+            REDIS_PASSWORD: redis_password
+            REDIS_USERNAME: redis_username
+        command:
+            - /bin/sh
+            - -c
+            - redis-server --protected-mode no --requirepass $${REDIS_PASSWORD}
+
+volumes:
+    qdrant-data:

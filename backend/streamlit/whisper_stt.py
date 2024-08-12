@@ -1,10 +1,8 @@
 from streamlit_mic_recorder import mic_recorder
 import streamlit as st
 from groq import Groq
-from dotenv import load_dotenv
 
 import io
-import os
 
 
 def whisper_stt(

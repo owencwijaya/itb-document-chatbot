@@ -1,6 +1,7 @@
 from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.chat_history import BaseChatMessageHistory
+from langchain_openai import OpenAIEmbeddings
 from langchain_groq import ChatGroq
 from langchain_qdrant import Qdrant
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
@@ -22,9 +23,10 @@ class InputChat(TypedDict):
 def init_models():
     model_name = {"embeddings": "BAAI/bge-base-en-v1.5", "llm": "llama-3.1-8b-instant"}
 
-    embeddings = HuggingFaceInferenceAPIEmbeddings(
-        model_name=model_name["embeddings"], api_key=settings.HUGGINGFACE_API_KEY
-    )
+    # embeddings = HuggingFaceInferenceAPIEmbeddings(
+    #     model_name=model_name["embeddings"], api_key=settings.HUGGINGFACE_API_KEY
+    # )
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
     vector_db_client = QdrantClient(settings.VECTOR_DB_ENDPOINT)
 

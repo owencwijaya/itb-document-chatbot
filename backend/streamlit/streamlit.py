@@ -38,5 +38,16 @@ if prompt := st.chat_input("Masukkan pertanyaan:") or text:
                     "configurable": {"user_id": "owen"},
                 },
             )
+            # response = st.write_stream(
+            #     chain.stream(
+            #         {
+            #             "input": prompt,
+            #         },
+            #         config={
+            #             "callbacks": [stream_handler],
+            #             "configurable": {"user_id": "owen"},
+            #         },
+            #     )
+            # )
 
-        st.markdown(response["answer"])
+        st.markdown(response)

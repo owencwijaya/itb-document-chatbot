@@ -27,8 +27,10 @@ def init_models():
     #     model_name=model_name["embeddings"], api_key=settings.HUGGINGFACE_API_KEY
     # )
     embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
-
-    vector_db_client = QdrantClient(settings.VECTOR_DB_ENDPOINT)
+    print(settings.VECTOR_DB_ENDPOINT)
+    vector_db_client = QdrantClient(
+        settings.VECTOR_DB_ENDPOINT, api_key=settings.QDRANT_API_KEY
+    )
 
     llm = ChatGroq(
         model=model_name["llm"],
@@ -40,6 +42,7 @@ def init_models():
         client=vector_db_client,
         collection_name="informasi_umum",
         embeddings=embeddings,
+        # api_key=settings.QDRANT_API_KEY,
     )
 
     retrieval_prompt = create_retrieval_prompt()

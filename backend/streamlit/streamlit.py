@@ -50,4 +50,4 @@ if prompt := st.chat_input("Masukkan pertanyaan:") or text:
             #     )
             # )
 
-        st.markdown(response)
+        st.markdown(response["answer"])

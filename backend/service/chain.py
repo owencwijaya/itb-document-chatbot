@@ -32,10 +32,14 @@ def init_models():
 
     llm = ChatGroq(
         model=model_name["llm"],
+        temperature=0.25,
+        max_tokens=1024,
     )
 
     vectorstore = Qdrant(
-        client=vector_db_client, collection_name="informasi_umum", embeddings=embeddings
+        client=vector_db_client,
+        collection_name="informasi_umum",
+        embeddings=embeddings,
     )
 
     retrieval_prompt = create_retrieval_prompt()

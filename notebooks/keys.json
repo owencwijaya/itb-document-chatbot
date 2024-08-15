@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "poetic-bongo-430808-f2",
+  "private_key_id": "b78b00de8ede90749381ebecd00c5fdb88fb8bd0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDox2k4as6tJdRq\nhjVAfcEgea0YWZkFox4yM2JgVQXv/qV1eAsyusnXWzVPo6BZWM4/QepjwbBiRz1C\n2gPjHsNN9fg9boh64gWV7B/o0c4J4P+UcloTSg0q/5T500N9TQC7ausuTDQ/yU1/\nhdMfxfqq99ioRMb+dUTZKuLN3HFOIP8Q3C0cuYNJPplHiLJ3Rj2PRaComoOsn9fo\niHB5r78Yu3vGvCHevjAcVaYPRDkP0wHSkSd+EugS96MvRgvO5UHDFcdZcdTZ9YnM\neJBC3QmVMmuVSh05BXiSepfKPnZ62keoy8jUuStvPeQMH/ZoFZfXtt4DnJ+y4N9B\n7YzosqKvAgMBAAECggEAcFDDOrcCSPYvU0S1Tgw/UpGTDOQyWs91QuibJ3rutflK\n0W6eDJimyhPWmboMJQAd59TAqOhsWEciTm7OIFiYCLZNVCrQjGYhJtD7JoWQ4iBf\ngTtZreP1jZErSw1+C2fLmiKBHmIjdcGF9KlYEIUgqTyUG8CvuVhQ4233aDfcrcJ/\nbPlXfXDKOkH8oQh1v20X93EJdR1InfnO6DSaGUmhUSLITJYDHX3fGf0ubMizFhRu\nLjhQFHuTl+s6rSaWjy1MWzOYkqs4FPYPz/hScsMS81PHlnz4kLZ3BL0aFiMocEmh\nMD3u+PZtxFqwLsYec2D5vrHTkUjgtyliKvNuUeKjQQKBgQD0liMzLwxqlT1q3i1v\nwL3uB/ovmkVq/G7M5mxfWdtrw5QFsVQdLJEQbOQ3kK62PZ6QNybqZfywhgkYSUip\nidymqov6C20SIk2l+WtZuhwRkGisSpTXyZzQr5gI57AnJ9MYr6cmKVQM7raYgegj\nSiKezT1kZdJyEvV71MTEW16y7wKBgQDzpDgg6D7lS3Eu1yiVOt3z1vcLTqnULQEl\nOOGkMmINlNveHoUGGLaTq5p5SEfdm9Vn04GqU+eyuj28CFNnVNd8DHKZ8no9e+uM\nSvcC1YFkIE7IDaY/xlc/gIEeeCrlu1diYd91oS3Ppafv1u5XeoVJVEdmkwGz9hkY\nKE3Y/vwMQQKBgQDHW6DxVUX/kglvlAzg6+9jlyj7p/kxDPSbGq32wl0w50c9pJ50\n8SCEjN0v1UQy0uLtlaaoo9xlXbsICqOpXO93Acf6VVnf0AoOYNB5YFMElfpbhKbx\nhCnHh3iauY5BPBq6ImJRnpoduG0ovaojKYgyfAOwU7ZGuOFSv8hqbDcyDQKBgQDF\n8cy8R5QZ/IIXOS06mNoMqsCJij6GKI4+rIj+OwTY3fEH9CnFOzzSmt/k22mvzVTD\nht5ZANREq/VOGEGSuSZdHUvacVsJKu3DTICE5+u46lq3RAem1sC50fCVTbIkdWFY\niAXh7rJmesMHI8r+fYdefT+JQbRnfnEC5HPi8b7bQQKBgQCwi2Fe734GcOVk3b5I\nIbUJNhlsrTTMk37Gq/FhAcwxwy3DOMk63vY6asyxZchRqKdEzwh99zBZBlscJk/B\nhTSYzgWSdifwdReTaWwySRoskRIh6GA/FQh2yj5N2SCTb6+o3bTdZOrRxaRxrsLJ\n6Fh9NwfCSqQaWzYPYuLzs6nsYw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "xlsx-scraper@poetic-bongo-430808-f2.iam.gserviceaccount.com",
+  "client_id": "100659031642230585132",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/xlsx-scraper%40poetic-bongo-430808-f2.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

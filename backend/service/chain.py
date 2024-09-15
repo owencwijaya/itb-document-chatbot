@@ -21,7 +21,8 @@ class InputChat(TypedDict):
 
 
 def init_models():
-    model_name = {"embeddings": "BAAI/bge-base-en-v1.5", "llm": "llama-3.1-8b-instant"}
+    # model_name = {"embeddings": "BAAI/bge-base-en-v1.5", "llm": "llama-3.1-8b-instant"}
+    model_name = {"embeddings": "BAAI/bge-base-en-v1.5", "llm": "llama3-8b-8192"}
 
     # embeddings = HuggingFaceInferenceAPIEmbeddings(
     #     model_name=model_name["embeddings"], api_key=settings.HUGGINGFACE_API_KEY
@@ -40,7 +41,7 @@ def init_models():
 
     vectorstore = Qdrant(
         client=vector_db_client,
-        collection_name="informasi_umum",
+        collection_name="informasi_umum_json_refs",
         embeddings=embeddings,
         # api_key=settings.QDRANT_API_KEY,
     )
@@ -48,7 +49,9 @@ def init_models():
     retrieval_prompt = create_retrieval_prompt()
 
     retriever = create_history_aware_retriever(
-        llm, vectorstore.as_retriever(), retrieval_prompt
+        llm,
+        vectorstore.as_retriever(limit=10, score_threshold=0.5),
+        retrieval_prompt,
     )
 
     return llm, retriever

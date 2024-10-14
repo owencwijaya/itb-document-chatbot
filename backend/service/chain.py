@@ -4,6 +4,7 @@ from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_openai import OpenAIEmbeddings
 from langchain_groq import ChatGroq
 from langchain_qdrant import Qdrant
+from langchain_milvus import Milvus
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
@@ -29,28 +30,34 @@ def init_models():
     # )
     embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
     print(settings.VECTOR_DB_ENDPOINT)
-    vector_db_client = QdrantClient(
-        settings.VECTOR_DB_ENDPOINT, api_key=settings.QDRANT_API_KEY
+    # vector_db_client = QdrantClient(
+    #     settings.VECTOR_DB_ENDPOINT, api_key=settings.QDRANT_API_KEY
+    # )
+    vectorstore = Milvus(
+        embedding_function=embeddings,
+        connection_args={"uri": settings.MILVUS_URI, "token": settings.MILVUS_TOKEN},
+        collection_name="informasi_umum_json_refs",
     )
 
     llm = ChatGroq(
         model=model_name["llm"],
         temperature=0.25,
-        max_tokens=1024,
     )
 
-    vectorstore = Qdrant(
-        client=vector_db_client,
-        collection_name="informasi_umum_json_refs",
-        embeddings=embeddings,
-        # api_key=settings.QDRANT_API_KEY,
-    )
+    # vectorstore = Qdrant(
+    #     client=vector_db_client,
+    #     collection_name="informasi_umum_json_refs",
+    #     embeddings=embeddings,
+    #     # api_key=settings.QDRANT_API_KEY,
+    # )
+    # vectorstore = Milvus
 
     retrieval_prompt = create_retrieval_prompt()
 
     retriever = create_history_aware_retriever(
         llm,
-        vectorstore.as_retriever(limit=10, score_threshold=0.5),
+        # vectorstore.as_retriever(search_kwargs={"k": 6, "score_threshold": 0.5}),
+        vectorstore.as_retriever(),
         retrieval_prompt,
     )
 

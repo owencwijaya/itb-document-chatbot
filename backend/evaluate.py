@@ -1,3 +1,4 @@
+import traceback
 from service.chain import create_chain
 from langsmith.evaluation import evaluate, LangChainStringEvaluator
 from langchain_core.chat_history import BaseChatMessageHistory
@@ -22,37 +23,46 @@ def get_session_history(session_id: str) -> BaseChatMessageHistory:
 chain = create_chain(get_session_history=get_session_history)
 
 
-evaluators = [
-    LangChainStringEvaluator("cot_qa"),
-    LangChainStringEvaluator(
-        "embedding_distance", config={"distance_metric": "cosine"}
-    ),
-    LangChainStringEvaluator(
-        "labeled_score_string",
-        config={
-            "criteria": {
-                "accuracy": "How accurate is this prediction compared to the reference on a scale of 1-10?"
-            },
-            "normalize_by": 10,
-            "llm": ChatGroq(temperature=0.0, model="llama-3.1-8b-instant"),
-        },
-    ),
-]
+# evaluators = [
+#     LangChainStringEvaluator("cot_qa"),
+#     LangChainStringEvaluator(
+#         "embedding_distance", config={"distance_metric": "cosine"}
+#     ),
+#     LangChainStringEvaluator(
+#         "labeled_score_string",
+#         config={
+#             "criteria": {
+#                 "accuracy": "How accurate is this prediction compared to the reference on a scale of 1-10?"
+#             },
+#             "normalize_by": 10,
+#             "llm": ChatGroq(temperature=0.0, model="llama-3.1-8b-instant"),
+#         },
+#     ),
+# ]
 
 
-def custom_invoke(input_data):
+# def custom_invoke(input_data):
+#     answer = chain.invoke(
+#         {"input": input_data["Pertanyaan"]},
+#         config={"configurable": {"user_id": "owen-" + str(uuid.uuid4())}},
+#     )
+
+#     return answer["answer"]
+
+
+# results = evaluate(
+#     custom_invoke,
+#     data="qna-informasi-umum",
+#     experiment_prefix="with-evaluators",
+#     max_concurrency=1,
+#     evaluators=evaluators,
+# )
+
+try:
     answer = chain.invoke(
-        {"input": input_data["Pertanyaan"]},
+        {"input": "berapa keketatan di stei??"},
         config={"configurable": {"user_id": "owen-" + str(uuid.uuid4())}},
     )
-
-    return answer["answer"]
-
-
-results = evaluate(
-    custom_invoke,
-    data="qna-informasi-umum",
-    experiment_prefix="with-evaluators",
-    max_concurrency=1,
-    evaluators=evaluators,
-)
+    print(answer)
+except Exception as e:
+    print(traceback.format_exc())

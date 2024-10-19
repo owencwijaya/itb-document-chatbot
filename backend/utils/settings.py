@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     QDRANT_API_KEY: str = os.getenv("QDRANT_API_KEY", "")
     MILVUS_URI: str = os.getenv("MILVUS_URI", "")
     MILVUS_TOKEN: str = os.getenv("MILVUS_TOKEN", "")
+    DB_URI: str = os.getenv("DB_URI", "")
 
 
 settings = Settings()

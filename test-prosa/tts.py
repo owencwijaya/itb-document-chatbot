@@ -61,6 +61,7 @@ async def text_to_speech(
             print(f"An error occurred: {e}")
 
     print(f"Text-to-speech operation completed. job_id: {job_id}")
+    return f"results/{job_id}/{audio_name}"
 
 
 # to test the function
